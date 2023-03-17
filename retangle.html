@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1300px" height="300"></canvas>
+    <script>
+        function Rectangle(width, height) {
+            this.height = height;
+            this.width = width;
+            this.getHeight = function () {
+                return this.heigth;
+            };
+            this.getWidth = function () {
+                return this.width;
+            };
+            this.setHeight = function (height) {
+                this.height = height;
+            };
+            this.setWidth = function (width) {
+                this.width = width;
+            }
+
+            this.getArea = function () {
+                return this.height * this.width;
+            };
+            this.getPerimeter = function () {
+                return (this.width + this.height) * 2;
+            }
+        }
+        let retangle01 = new Rectangle(20,30);
+        retangle01.setHeight(30);
+        retangle01.getHeight();
+        retangle01.setWidth(100);
+        retangle01.getWidth();
+        console.log(retangle01.getArea());
+        console.log(retangle01.getPerimeter());
+        //màu ngẫu nhiên
+        function getRandomHex() {
+            //Hàm getRandomHex() sẽ sinh ra một số 
+            //ngẫu nhiên nằm trong khoảng 0-255.
+            return Math.floor(Math.random() * 255);
+        }
+        function getRandomColor() {
+            var red = getRandomHex();
+            var blue = getRandomHex();
+            var green = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+
+        // vẽ hình chữ nhật
+        function createRetangle(){
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+            let retangle02 = new Rectangle(200,30);
+            var color = getRandomColor();
+            ctx.beginPath();
+            ctx.fillStyle =color;
+            ctx.fillRect(10,10,retangle02.width,retangle02.height);
+
+
+        }
+        createRetangle();
+
+    </script>
+</body>
+
+</html>
